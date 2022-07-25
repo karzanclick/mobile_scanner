@@ -40,8 +40,7 @@ class MobileScanner extends StatefulWidget {
   State<MobileScanner> createState() => _MobileScannerState();
 }
 
-class _MobileScannerState extends State<MobileScanner>
-    with WidgetsBindingObserver {
+class _MobileScannerState extends State<MobileScanner> with WidgetsBindingObserver {
   late MobileScannerController controller;
 
   @override
@@ -97,9 +96,7 @@ class _MobileScannerState extends State<MobileScanner>
                     child: SizedBox(
                       width: value.size.width,
                       height: value.size.height,
-                      child: kIsWeb
-                          ? HtmlElementView(viewType: value.webId!)
-                          : Texture(textureId: value.textureId!),
+                      child: kIsWeb ? HtmlElementView(viewType: value.webId!) : Texture(textureId: value.textureId!),
                     ),
                   ),
                 ),
@@ -116,7 +113,7 @@ class _MobileScannerState extends State<MobileScanner>
     super.didUpdateWidget(oldWidget);
     if (oldWidget.controller == null) {
       if (widget.controller != null) {
-        controller.dispose();
+        //controller.dispose();
         controller = widget.controller!;
       }
     } else {
@@ -130,7 +127,7 @@ class _MobileScannerState extends State<MobileScanner>
 
   @override
   void dispose() {
-    controller.dispose();
+    //controller.dispose();
     WidgetsBinding.instance.removeObserver(this);
     super.dispose();
   }
